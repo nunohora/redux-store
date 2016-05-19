@@ -1,0 +1,16 @@
+{
+  "name": "@come/redux-store",
+  "version": "1.0.0",
+  "description": "redux store for mobile and web",
+  "main": "configureStore.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://nunohora@bitbucket.org/teamcome/redux-store.git"
+  },
+  "author": "Nuno Hora",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/teamcome/redux-store#readme"
+}
