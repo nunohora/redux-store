@@ -1,6 +1,6 @@
 /* global Promise, dispatch */
 
-import api from 'redux/utils/api'
+import api from '../utils/api'
 
 export const GET_REST_BY_ID = 'GET_REST_BY_ID'
 
