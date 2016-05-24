@@ -1,6 +1,6 @@
 /* global Promise */
 
-import { CALL_API } from 'redux/middleware/api'
+import { CALL_API } from '../middleware/api'
 
 export const GET_RESTAURANT_REQUEST = 'GET_RESTAURANT_REQUEST'
 export const GET_RESTAURANT_SUCCESS = 'GET_RESTAURANT_SUCCESS'

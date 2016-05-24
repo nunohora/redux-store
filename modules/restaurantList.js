@@ -1,4 +1,4 @@
-import { CALL_API } from 'redux/middleware/api'
+import { CALL_API } from '../middleware/api'
 import _ from 'underscore'
 
 export const SEARCH_REQUEST = 'SEARCH_REQUEST'
