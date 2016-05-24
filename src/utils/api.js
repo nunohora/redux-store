@@ -4,7 +4,7 @@ const baseUrl = 'http://localhost:3001/v1/'
 
 let user = localStorage.getItem('user');
 
-export function getRestaurantsByLocation(location) {
+function getRestaurantsByLocation(location) {
     return axios.get(`${ baseUrl }search`, {
         params: {
             location: location
@@ -12,15 +12,15 @@ export function getRestaurantsByLocation(location) {
     })
 }
 
-export function getRestaurantById(id) {
+function getRestaurantById(id) {
     return axios.get(`${ baseUrl }places/${ id }`)
 }
 
-export function getRestaurantProducts(id) {
+function getRestaurantProducts(id) {
     return axios.get(`${ baseUrl }places/${ id }/products`)
 }
 
-export function loginUser(params) {
+function loginUser(params) {
     return axios({
         method: 'post',
         url: `${ baseUrl }login`,
@@ -30,3 +30,10 @@ export function loginUser(params) {
         }
     })
 }
+
+export default () => ({
+    getRestaurantsByLocation,
+    getRestaurantById,
+    getRestaurantProducts,
+    loginUser
+})
