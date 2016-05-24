@@ -37,11 +37,10 @@ export function login(dispatch) {
 }
 
 export function logout(dispatch) {
-    return dispatch => {
-        dispatch(requestLogout)
-        localStorage.removeItem('id_token')
-        dispatch(receiveLogout())
-    }
+    dispatch(requestLogout)
+    localStorage.removeItem('id_token')
+    localStorage.removeItem('profile')
+    dispatch(receiveLogout())
 }
 
 export function requestLogout() {
@@ -95,7 +94,8 @@ const ACTION_HANDLERS = {
 
 const initialState = {
     isFetching: false,
-    isAuthenticated: localStorage.getItem('id_token') ? true : false
+    isAuthenticated: localStorage.getItem('id_token') ? true : false,
+    profile: localStorage.getItem('profile') ? JSON.parse(localStorage.getItem('profile')) : {},
 }
 
 // ------------------------------------

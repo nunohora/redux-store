@@ -1,4 +1,4 @@
-import { CALL_API } from '../middleware/api'
+import { CALL_API } from 'redux/middleware/api'
 import _ from 'underscore'
 
 export const SEARCH_REQUEST = 'SEARCH_REQUEST'
@@ -8,15 +8,24 @@ export const SEARCH_FAILURE = 'SEARCH_FAILURE'
 // ------------------------------------
 // Actions
 // ------------------------------------
-export function getRestListByLocation(postcode) {
-    return {
+export function getRestListByLocation(dispatch, postcode) {
+    dispatch(searchRequest(postcode))
+
+    dispatch({
         [CALL_API]: {
             endpoint: `search?location=${postcode}`,
             types: [SEARCH_REQUEST, SEARCH_SUCCESS, SEARCH_FAILURE]
         }
-    }
+    })
 }
 
+function searchRequest(postcode) {
+    return {
+        type: SEARCH_REQUEST,
+        isFetching: true,
+        postcode: postcode
+    }
+}
 function setCategories(list, totalResults) {
     const cats = [{
         id: 0,
@@ -50,17 +59,18 @@ function setCategories(list, totalResults) {
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-    [SEARCH_REQUEST]: state => {
+    [SEARCH_REQUEST]: (state, data) => {
         return Object.assign({}, state, {
-            isFetching: true
+            isFetching: true,
+            postcode: data.postcode
         })
     },
     [SEARCH_SUCCESS]: (state, data) => {
         return Object.assign({}, state, {
-            postcode: { $set: data.postcode },
-            categories: { $set: setCategories(data.search, data.meta.total_results) },
-            list: { $set: data.search},
-            number: { $set: data.meta.total_results },
+            postcode: data.postcode,
+            categories: setCategories(data.response.search, data.response.meta.total_results),
+            list: data.response.search,
+            number: data.response.meta.total_results,
             isFetching: false
         })
     },
@@ -84,8 +94,7 @@ const initialState = {
 // Reducer
 // ------------------------------------
 export default function restaurantListReducer(state = initialState, action = {}) {
-    const { data } = action
     const handler = ACTION_HANDLERS[action.type]
 
-    return handler ? handler(state, data) : state
+    return handler ? handler(state, action) : state
 }

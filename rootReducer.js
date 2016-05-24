@@ -12,4 +12,3 @@ export default combineReducers({
     router,
     form: formReducer
 })
-
