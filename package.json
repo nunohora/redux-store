@@ -18,17 +18,13 @@
     "auth0-lock": "^9.2.1",
     "axios": "^0.11.1",
     "core-js": "^2.4.0",
-    "react": "^15.0.2",
-    "react-redux": "^4.4.5",
-    "react-router-redux": "^4.0.4",
-    "redux": "^3.5.2",
-    "redux-form": "^5.2.3",
-    "redux-thunk": "^2.1.0",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
-    "babel": "^6.5.2",
+    "babel-cli": "^6.9.0",
+    "babel-plugin-react-transform": "^2.0.2",
     "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0"
   }
 }

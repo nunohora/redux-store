@@ -50,7 +50,7 @@ function oneOf(enumeration) {
     }
 }
 
-function match(field) {
+export function match(field) {
     return (value, data) => {
         if (data) {
             if (value !== data[field]) {

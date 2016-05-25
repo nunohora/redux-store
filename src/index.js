@@ -1,9 +1,9 @@
-import configureStore from './configureStore'
 import utils from './utils'
 import modules from './modules'
+import reducers from './rootReducer'
 
 export {
     utils,
-    configureStore,
-    modules
+    modules,
+    reducers
 }
