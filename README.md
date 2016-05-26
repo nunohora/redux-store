@@ -22,3 +22,14 @@ and then import it:
 
 import { modules, validation } from '@come/redux-store'
 ```
+
+
+### NOTE ###
+You need to add the private registry to your npm for this to work
+
+```
+#!bash
+
+npm adduser --registry http://npm.come.pt:4873
+
+```
