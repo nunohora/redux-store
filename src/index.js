@@ -1,9 +1,9 @@
 import utils from './utils'
 import modules from './modules'
-import reducers from './rootReducer'
+import api from './middleware/api'
 
-export {
+module.exports = {
     utils,
     modules,
-    reducers
+    api
 }

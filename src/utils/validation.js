@@ -76,7 +76,7 @@ function createValidator(rules) {
     }
 }
 
-export default () => ({
+export default {
     createValidator,
     match,
     oneOf,
@@ -86,4 +86,4 @@ export default () => ({
     required,
     email,
     postcode
-})
+}
