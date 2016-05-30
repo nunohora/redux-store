@@ -17,7 +17,7 @@ export const GET_PRODUCTS_FAILURE = 'GET_PRODUCTS_FAILURE'
 // ------------------------------------
 // Actions
 // ------------------------------------
-export function getRestaurant(dispatch, id) {
+function getRestaurant(dispatch, id) {
     dispatch(getRestaurantRequest())
 
     Promise.all([
@@ -96,8 +96,13 @@ const initialState = {
 // ------------------------------------
 // Reducer
 // ------------------------------------
-export default function restaurantListReducer(state = initialState, action = {}) {
+function reducer(state = initialState, action = {}) {
     const handler = ACTION_HANDLERS[action.type]
 
     return handler ? handler(state, action) : state
+}
+
+export default {
+    reducer,
+    getRestaurant
 }

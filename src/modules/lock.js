@@ -22,7 +22,7 @@ function lockError(err) {
     }
 }
 
-export function login(dispatch) {
+function login(dispatch) {
     return () => {
         lock.show((err, profile, token) => {
             if (err) {
@@ -36,14 +36,14 @@ export function login(dispatch) {
     }
 }
 
-export function logout(dispatch) {
+function logout(dispatch) {
     dispatch(requestLogout)
     localStorage.removeItem('id_token')
     localStorage.removeItem('profile')
     dispatch(receiveLogout())
 }
 
-export function requestLogout() {
+function requestLogout() {
     return {
         type: LOGOUT_REQUEST,
         isFetching: true,
@@ -51,7 +51,7 @@ export function requestLogout() {
     }
 }
 
-export function receiveLogout() {
+function receiveLogout() {
     return {
         type: LOGOUT_SUCCESS,
         isFetching: false,
@@ -101,8 +101,16 @@ const initialState = {
 // ------------------------------------
 // Reducer
 // ------------------------------------
-export default function lockReducer(state = initialState, action = {}) {
+function reducer(state = initialState, action = {}) {
     const handler = ACTION_HANDLERS[action.type]
 
     return handler ? handler(state, action) : state
+}
+
+export default {
+    reducer,
+    login,
+    logout,
+    requestLogout,
+    receiveLogout
 }

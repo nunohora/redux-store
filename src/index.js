@@ -1,6 +1,6 @@
-import * as utils from './utils'
-import * as modules from './modules'
-import * as api from './middleware/api'
+import utils from './utils'
+import modules from './modules'
+import api from './middleware/api'
 
 module.exports = {
     utils,

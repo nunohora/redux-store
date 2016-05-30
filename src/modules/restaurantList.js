@@ -8,7 +8,7 @@ export const SEARCH_FAILURE = 'SEARCH_FAILURE'
 // ------------------------------------
 // Actions
 // ------------------------------------
-export function getRestListByLocation(dispatch, postcode) {
+function getRestListByLocation(dispatch, postcode) {
     dispatch(searchRequest(postcode))
 
     dispatch({
@@ -93,8 +93,13 @@ const initialState = {
 // ------------------------------------
 // Reducer
 // ------------------------------------
-export default function restaurantListReducer(state = initialState, action = {}) {
+export default function reducer(state = initialState, action = {}) {
     const handler = ACTION_HANDLERS[action.type]
 
     return handler ? handler(state, action) : state
+}
+
+export default {
+    reducer,
+    getRestListByLocation
 }
