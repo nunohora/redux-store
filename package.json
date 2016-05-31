@@ -1,6 +1,6 @@
 {
   "name": "@come/redux-store",
-  "version": "1.2.20",
+  "version": "1.2.21",
   "description": "redux store for web and mobile",
   "main": "./lib/index.js",
   "scripts": {
