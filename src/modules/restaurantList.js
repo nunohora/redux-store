@@ -1,5 +1,5 @@
 import { CALL_API } from '../middleware/api'
-import _ from 'underscore'
+import { findWhere } from '../utils/generic'
 
 export const SEARCH_REQUEST = 'SEARCH_REQUEST'
 export const SEARCH_SUCCESS = 'SEARCH_SUCCESS'
@@ -37,7 +37,7 @@ function setCategories(list, totalResults) {
         restaurant.categories.map(cat => {
 
             const { name } = cat
-            const exists = _.findWhere(cats, { name: name })
+            const exists = findWhere(cats, { name: name })
 
             if (exists) {
                 exists.number = exists.number + 1
