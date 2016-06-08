@@ -1,5 +1,5 @@
 export default {
-    "TENS_FOME:": "Tens fome?!",
+    "TENS_FOME": "Tens fome?!",
     "COME": "Come",
     "ONDE_ESTA": "1. Diga-nos onde está",
     "PRECISAMOS_CODIGO_POSTAL": "Só precisamos do seu código postal.",
