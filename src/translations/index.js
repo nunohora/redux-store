@@ -1,3 +1,3 @@
-import pt from './pt.json'
+import pt from './pt'
 
-export default JSON.parse(pt)
+export default pt
