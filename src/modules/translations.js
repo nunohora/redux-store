@@ -1,7 +1,7 @@
 /* global Promise */
 
-import { CALL_API } from '../middleware/api'
-
+//import { CALL_API } from '../middleware/api'
+import pt from 'react-intl/locale-data/pt'
 const GET_TRANSLATIONS_REQUEST = 'GET_TRANSLATIONS_REQUEST'
 const GET_TRANSLATIONS_SUCCESS = 'GET_TRANSLATIONS_SUCCESS'
 const GET_TRANSLATIONS_FAILURE = 'GET_TRANSLATIONS_FAILURE'
@@ -9,43 +9,54 @@ const GET_TRANSLATIONS_FAILURE = 'GET_TRANSLATIONS_FAILURE'
 // ------------------------------------
 // Actions
 // ------------------------------------
-function getTranslations(locale) {
+function getTranslationsForLocale(locale) {
     dispatch(getTranslationsRequest())
 
     dispatch({
-        [CALL_API]: {
-            endpoint: `translate/${locale}`,
-            types: [GET_TRANSLATIONS_REQUEST, GET_TRANSLATIONS_SUCCESS, GET_TRANSLATIONS_FAILURE]
-        }
-    }).then(data => {
-        dispatch({
-            type: GET_TRANSLATIONS_SUCCESS,
-            isFetching: false,
-            data: data
-        })
-    }).catch(() => {
-        dispatch({
-            type: GET_TRANSLATIONS_FAILURE,
-            isFetching: false
-        })
+        type: GET_TRANSLATIONS_SUCCESS,
+        messages: pt
     })
+
+    // Use this when async is ready
+    // dispatch({
+    //     [CALL_API]: {
+    //         endpoint: `translate/${locale}`,
+    //         types: [GET_TRANSLATIONS_REQUEST, GET_TRANSLATIONS_SUCCESS, GET_TRANSLATIONS_FAILURE]
+    //     }
+    // }).then(data => {
+    //     dispatch({
+    //         type: GET_TRANSLATIONS_SUCCESS,
+    //         isFetching: false,
+    //         data: data
+    //     })
+    // }).catch(() => {
+    //     dispatch({
+    //         type: GET_TRANSLATIONS_FAILURE,
+    //         isFetching: false
+    //     })
+    // })
 }
 
 function getTranslationsRequest() {
-    return {
-        type: GET_TRANSLATIONS_REQUEST,
-        isFetching: true
-    }
+    return { type: GET_TRANSLATIONS_REQUEST }
+}
+
+function getTranslatedMessage(key) {
+    return formatMessage()
 }
 
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
+    [GET_TRANSLATIONS_REQUEST]: (state) => {
+        return Object.assign({}, state, {
+            isFetching: true
+        })
+    },
     [GET_TRANSLATIONS_SUCCESS]: (state, data) => {
         return Object.assign({}, state, {
-            isFetching: false,
-            data: data
+            isFetching: false
         })
     },
     [GET_TRANSLATIONS_FAILURE]: state => {
@@ -72,5 +83,5 @@ function reducer(state = initialState, action = {}) {
 
 export default {
     reducer,
-    getTranslations
+    getTranslationsForLocale
 }
