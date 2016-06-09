@@ -1,6 +1,6 @@
 export default {
     "TENS_FOME": "Tens fome?!",
-    "COME": "Come",
+    "COME": "Come!",
     "ONDE_ESTA": "1. Diga-nos onde está",
     "PRECISAMOS_CODIGO_POSTAL": "Só precisamos do seu código postal.",
     "ESCOLHA_TAKEAWAY": "2. Escolha um takeaway",
