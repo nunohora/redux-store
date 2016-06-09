@@ -1,6 +1,6 @@
 {
   "name": "nuno-redux-store",
-  "version": "1.5.6",
+  "version": "1.5.7",
   "description": "redux store for web and mobile",
   "main": "./lib/index.js",
   "scripts": {
