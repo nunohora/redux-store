@@ -28,7 +28,7 @@ function callApi(endpoint, authenticated) {
         }).catch(err => console.log(err))
 }
 
-export const CALL_API = Symbol('Call API')
+export const CALL_API = 'CALL_API'
 
 export default store => next => action => {
 
