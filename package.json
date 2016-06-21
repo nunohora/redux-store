@@ -1,6 +1,6 @@
 {
   "name": "nuno-redux-store",
-  "version": "1.5.9",
+  "version": "1.5.11",
   "description": "redux store for web and mobile",
   "main": "./lib/index.js",
   "scripts": {
@@ -14,7 +14,7 @@
   "author": "Nuno Hora",
   "license": "ISC",
   "homepage": "https://bitbucket.org/teamcome/redux-store#readme",
-  "devDependencies": {
+  "dependencies": {
     "axios": "^0.11.1",
     "babel-cli": "^6.9.0",
     "babel-preset-es2015": "^6.9.0",

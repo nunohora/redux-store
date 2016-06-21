@@ -1,7 +1,6 @@
 /* global Promise */
 
 //import { CALL_API } from '../middleware/api'
-import pt from 'react-intl/locale-data/pt'
 const GET_TRANSLATIONS_REQUEST = 'GET_TRANSLATIONS_REQUEST'
 const GET_TRANSLATIONS_SUCCESS = 'GET_TRANSLATIONS_SUCCESS'
 const GET_TRANSLATIONS_FAILURE = 'GET_TRANSLATIONS_FAILURE'
@@ -14,7 +13,7 @@ function getTranslationsForLocale(locale) {
 
     dispatch({
         type: GET_TRANSLATIONS_SUCCESS,
-        messages: pt
+        messages: []
     })
 
     // Use this when async is ready
