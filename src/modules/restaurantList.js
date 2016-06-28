@@ -1,9 +1,11 @@
 import { CALL_API } from '../middleware/api'
-import { findWhere } from '../utils/generic'
+import { generic } from '../utils'
 
 export const SEARCH_REQUEST = 'SEARCH_REQUEST'
 export const SEARCH_SUCCESS = 'SEARCH_SUCCESS'
 export const SEARCH_FAILURE = 'SEARCH_FAILURE'
+
+const { findWhere } = generic
 
 // ------------------------------------
 // Actions

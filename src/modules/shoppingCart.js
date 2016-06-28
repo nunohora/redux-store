@@ -4,13 +4,42 @@ const ADD_ORDER_ITEM_FAILURE = 'ADD_ORDER_ITEM_FAILURE'
 const REMOVE_ORDER_ITEM_REQUEST = 'REMOVE_ORDER_ITEM_REQUEST'
 const REMOVE_ORDER_ITEM_SUCCESS = 'REMOVE_ORDER_ITEM_SUCCESS'
 const REMOVE_ORDER_ITEM_FAILURE = 'REMOVE_ORDER_ITEM_FAILURE'
+const GET_ORDERS_REQUEST = 'GET_ORDERS_REQUEST'
+const GET_ORDERS_SUCCESS = 'GET_ORDERS_SUCCESS'
+const GET_ORDERS_FAILURE = 'GET_ORDERS_FAILURE'
 
-function getOrdersForRestaurant(restId) {
-    return JSON.parse(localStorage.getItem('orders')[restId]) || []
+import { storage } from '../utils'
+
+function getOrdersForRestaurant(dispatch, restId) {
+    dispatch({
+        type: GET_ORDERS_REQUEST
+    })
+
+    storage.load({
+        key: 'orders'
+    }).then(res => {
+        dispatch({ type: GET_ORDERS_SUCCESS, res })
+    }).catch((err, res) => {
+        console.log('error: ', err)
+        console.log('response: ', res)
+
+        if (err) {
+            dispatch({ type: GET_ORDERS_FAILURE })
+        }
+        else {
+            dispatch({ type: GET_ORDERS_SUCCESS, orders: {} })
+        }
+    })
 }
 
-function setOrdersForRestaurant(orders) {
-    localStorage.setItem('orders', JSON.stringify(orders))
+function addOrderItem(item) {
+    storage.save({
+        key: 'orders'
+    }).then(res => {
+        console.log('here!!!')
+    }).catch((err, res) => {
+        console.log('error!!!')
+    })
 }
 
 function addOrderItemSuccess(item) {
