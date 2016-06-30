@@ -1,6 +1,6 @@
 {
   "name": "nuno-redux-store",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "redux store for web and mobile",
   "main": "./lib/index.js",
   "scripts": {
@@ -18,7 +18,6 @@
     "axios": "^0.11.1",
     "babel-cli": "^6.9.0",
     "babel-preset-es2015": "^6.9.0",
-    "babel-preset-stage-0": "^6.5.0",
-    "react-native-storage": "^0.1.2"
+    "babel-preset-stage-0": "^6.5.0"
   }
 }

@@ -1,5 +1,5 @@
 // returns first matching list member
-export function findWhere(list, props) {
+export default function findWhere(list, props) {
     var len = list.length;
     var match = false;
     var item, prop_k;
