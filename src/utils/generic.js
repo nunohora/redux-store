@@ -1,5 +1,5 @@
 // returns first matching list member
-export default function findWhere(list, props) {
+function findWhere(list, props) {
     var len = list.length;
     var match = false;
     var item, prop_k;
@@ -30,4 +30,8 @@ export default function findWhere(list, props) {
     }
     // No matches
     return null;
+}
+
+export default {
+    findWhere
 }
